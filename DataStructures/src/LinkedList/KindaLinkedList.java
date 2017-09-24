@@ -1,5 +1,8 @@
 package LinkedList;
 
+import java.util.HashMap;
+import java.util.HashSet;
+
 public class KindaLinkedList<E> {
 	/** ListNode reference to the front of the list*/
 	private ListNode front;
@@ -42,6 +45,13 @@ public class KindaLinkedList<E> {
 		} else {
 			return front.remove(index);
 		}
+	}
+	
+	/**
+	 * Prints out the list
+	 */
+	public String toString() {
+		return "[" + front.toString() + "]";
 	}
 
 	/**
@@ -134,6 +144,21 @@ public class KindaLinkedList<E> {
 		size++;
 	}
 	
+	public void removeDups() {
+		ListNode current = front;
+		HashSet<E> set = new HashSet<E>();
+		ListNode prev = null;
+		while (current != null) {
+			if (set.contains(current.data)) {
+				prev.next = current.next;
+				size--;
+			} else {
+				set.add(current.data);
+				prev = current;
+			}
+			current = current.next;
+		}
+	}
 	/**
 	 * Element of the linked list
 	 * @author Anastasia Egorova and Brian Hogan
@@ -226,6 +251,18 @@ public class KindaLinkedList<E> {
 				return data1;
 			} else {
 				return next.set(index - 1, data);
+			}
+		}
+		
+		/**
+		 * Prints out all the elements
+		 */
+		private String print() {
+			String output = "" + data;
+			if (next == null) {
+				return output;
+			} else {
+				return next.print() + ", " + output;
 			}
 		}
 	}
