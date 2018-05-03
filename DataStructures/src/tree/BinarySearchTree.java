@@ -2,6 +2,7 @@ package tree;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 
 /**
@@ -206,7 +207,26 @@ public class BinarySearchTree<T extends Comparable<T>> {
 	}
 	
 	public String inOrderIterative() {
-		return "";
+		if (root == null) return "";
+		Stack<Node<T>> stack = new Stack<Node<T>>();
+		StringBuilder s = new StringBuilder();
+		Node<T> curr = root;
+		Boolean done = false;
+		while (!done) {
+			if (curr != null) {
+				stack.push(curr);
+				curr = curr.getLeft();
+			} else {
+				if (!stack.isEmpty()) {
+					curr = stack.pop();
+					s.append(curr.getData().toString() + " ");
+					curr = curr.getRight();
+				} else {
+					done = true;
+				}
+			}
+		}
+		return s.toString();
 	}
 	
 	/**
