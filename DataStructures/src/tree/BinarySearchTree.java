@@ -160,7 +160,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
 	}
 	
 	/**
-	 * That's kinda repetitive but whatever. 
+	 * Recursive levelOrder
 	 */
 	public String levelOrderRecursive() {
 		Queue<Node<T>> queue = new LinkedList<Node<T>>();
@@ -188,40 +188,44 @@ public class BinarySearchTree<T extends Comparable<T>> {
 	 * In this case, it sorts. 
 	 * @return
 	 */
-	public String inOrderRecur() {
+	public String inOrderRecursive() {
 		if (root == null) return "";
 		StringBuilder s = new StringBuilder();
-		inOrderRecur(s, root);
+		inOrderRecursive(s, root);
 		return s.toString();
 	}
 	
-	private void inOrderRecur(StringBuilder s, Node<T> curr) {
+	private void inOrderRecursive(StringBuilder s, Node<T> curr) {
 		if (curr.getLeft() != null) {
-			inOrderRecur(s, curr.getLeft());
+			inOrderRecursive(s, curr.getLeft());
 		}
 		s.append(curr.getData().toString() + " ");
 		if (curr.getRight() != null) {
-			inOrderRecur(s, curr.getRight());
+			inOrderRecursive(s, curr.getRight());
 		}
+	}
+	
+	public String inOrderIterative() {
+		return "";
 	}
 	
 	/**
 	 * Post order recursive algorithm for binary tree
 	 * @return
 	 */
-	public String postOrderRecur() {
+	public String postOrderRecursive() {
 		if (root == null) return "";
 		StringBuilder s = new StringBuilder();
-		postOrderRecur(s, root);
+		postOrderRecursive(s, root);
 		return s.toString();
 	}
 	
-	private void postOrderRecur(StringBuilder s, Node<T> curr) {
+	private void postOrderRecursive(StringBuilder s, Node<T> curr) {
 		if (curr.getLeft() != null) {
-			postOrderRecur(s, curr.getLeft());
+			postOrderRecursive(s, curr.getLeft());
 		}
 		if (curr.getRight() != null) {
-			postOrderRecur(s, curr.getRight());
+			postOrderRecursive(s, curr.getRight());
 		}
 		s.append(curr.getData().toString() + " ");
 	}
@@ -231,20 +235,20 @@ public class BinarySearchTree<T extends Comparable<T>> {
 	 * Pre order recursive algorithm for binary tree
 	 * @return
 	 */
-	public String preOrderRecur() {
+	public String preOrderRecursive() {
 		if (root == null) return "";
 		StringBuilder s = new StringBuilder();
-		preOrderRecur(s, root);
+		preOrderRecursive(s, root);
 		return s.toString();
 	}
 	
-	private void preOrderRecur(StringBuilder s, Node<T> curr) {
+	private void preOrderRecursive(StringBuilder s, Node<T> curr) {
 		s.append(curr.getData().toString() + " ");
 		if (curr.getLeft() != null) {
-			preOrderRecur(s, curr.getLeft());
+			preOrderRecursive(s, curr.getLeft());
 		}
 		if (curr.getRight() != null) {
-			preOrderRecur(s, curr.getRight());
+			preOrderRecursive(s, curr.getRight());
 		}
 	}
 	
