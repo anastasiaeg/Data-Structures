@@ -137,6 +137,10 @@ public class BinarySearchTree<T extends Comparable<T>> {
 		return this.nodes;
 	}
 	
+	/**
+	 * Breadth first search for finding level
+	 * @return
+	 */
 	public String levelOrderIterative() {
 		Queue<Node<T>> queue = new LinkedList<Node<T>>();
 		queue.add(root);
@@ -178,4 +182,70 @@ public class BinarySearchTree<T extends Comparable<T>> {
 		}
 		return levelOrderRecursive(s, queue);
 	}
+	
+	/**
+	 * In order recursive algorithm for binary tree
+	 * In this case, it sorts. 
+	 * @return
+	 */
+	public String inOrderRecur() {
+		if (root == null) return "";
+		StringBuilder s = new StringBuilder();
+		inOrderRecur(s, root);
+		return s.toString();
+	}
+	
+	private void inOrderRecur(StringBuilder s, Node<T> curr) {
+		if (curr.getLeft() != null) {
+			inOrderRecur(s, curr.getLeft());
+		}
+		s.append(curr.getData().toString() + " ");
+		if (curr.getRight() != null) {
+			inOrderRecur(s, curr.getRight());
+		}
+	}
+	
+	/**
+	 * Post order recursive algorithm for binary tree
+	 * @return
+	 */
+	public String postOrderRecur() {
+		if (root == null) return "";
+		StringBuilder s = new StringBuilder();
+		postOrderRecur(s, root);
+		return s.toString();
+	}
+	
+	private void postOrderRecur(StringBuilder s, Node<T> curr) {
+		if (curr.getLeft() != null) {
+			postOrderRecur(s, curr.getLeft());
+		}
+		if (curr.getRight() != null) {
+			postOrderRecur(s, curr.getRight());
+		}
+		s.append(curr.getData().toString() + " ");
+	}
+	
+
+	/**
+	 * Pre order recursive algorithm for binary tree
+	 * @return
+	 */
+	public String preOrderRecur() {
+		if (root == null) return "";
+		StringBuilder s = new StringBuilder();
+		preOrderRecur(s, root);
+		return s.toString();
+	}
+	
+	private void preOrderRecur(StringBuilder s, Node<T> curr) {
+		s.append(curr.getData().toString() + " ");
+		if (curr.getLeft() != null) {
+			preOrderRecur(s, curr.getLeft());
+		}
+		if (curr.getRight() != null) {
+			preOrderRecur(s, curr.getRight());
+		}
+	}
+	
 }
