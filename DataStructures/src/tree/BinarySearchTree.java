@@ -206,6 +206,10 @@ public class BinarySearchTree<T extends Comparable<T>> {
 		}
 	}
 	
+	/**
+	 * In order iterative
+	 * @return
+	 */
 	public String inOrderIterative() {
 		if (root == null) return "";
 		Stack<Node<T>> stack = new Stack<Node<T>>();
@@ -250,7 +254,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
 		s.append(curr.getData().toString() + " ");
 	}
 	
-
 	/**
 	 * Pre order recursive algorithm for binary tree
 	 * @return
@@ -270,6 +273,33 @@ public class BinarySearchTree<T extends Comparable<T>> {
 		if (curr.getRight() != null) {
 			preOrderRecursive(s, curr.getRight());
 		}
+	}
+	
+	/**
+	 * PreOrder iterative implementation
+	 * @return
+	 */
+	public String preOrderIterative() {
+		if (root == null) return "";
+		Stack<Node<T>> stack = new Stack<Node<T>>();
+		StringBuilder s = new StringBuilder();
+		Node<T> curr = root;
+		Boolean done = false;
+		while (!done) {
+			if (curr != null) {
+				s.append(curr.getData().toString() + " ");
+				stack.push(curr);
+				curr = curr.getLeft();
+			} else {
+				if (!stack.isEmpty()) {
+					curr = stack.pop();
+					curr = curr.getRight();
+				} else {
+					done = true;
+				}
+			}
+		}
+		return s.toString();
 	}
 	
 }
