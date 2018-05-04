@@ -59,6 +59,7 @@ public class TreeTest {
 		assertEquals("20 40 30 60 80 70 50 ", bst.postOrderRecursive());
 		assertEquals("50 30 20 40 70 60 80 ", bst.preOrderRecursive());
 		assertEquals("20 30 40 50 60 70 80 ", bst.inOrderIterative());
+		assertEquals(3, bst.levels());
 		bst.remove(20);
 		assertEquals("50 30 70 40 60 80 ", bst.levelOrderIterative());
 		assertEquals("40 30 60 80 70 50 ", bst.postOrderRecursive());
@@ -74,5 +75,7 @@ public class TreeTest {
 		assertEquals("40 80 70 60 ", bst.postOrderRecursive());
 		assertEquals("60 40 70 80 ", bst.preOrderRecursive());
 		assertEquals("40 60 70 80 ", bst.inOrderRecursive());
+		bst.remove(80);
+		assertEquals(2, bst.levels());
 	}
 }

@@ -101,7 +101,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
 				nodes = 0;
 				return data;
 			}
-			if (curr.getParent().getLeft().equals(curr)) {
+			if (curr.getParent().getLeft()!= null && curr.getParent().getLeft().equals(curr)) {
 				nodes--;
 				curr.getParent().setLeft(null);
 			} else {
@@ -111,7 +111,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
 		} else if (curr.getLeft() == null || curr.getRight() == null) {
 			if (curr.equals(root)) {
 				nodes--;
-				root = curr.getLeft().equals(null) ? curr.getRight() : curr.getLeft();
+				root = curr.getLeft() == null ? curr.getRight() : curr.getLeft();
 				return data;
 			}
 			if (curr.getParent().getLeft().equals(curr)) {
@@ -302,4 +302,17 @@ public class BinarySearchTree<T extends Comparable<T>> {
 		return s.toString();
 	}
 	
+	/**
+	 * Find level of the tree
+	 * @return
+	 */
+	public int levels() {
+		if (root == null) return 0;
+		return levels(root, 1);
+	}
+	
+	private int levels(Node<T> curr, int length) {
+		if (curr == null) return length - 1;
+		return Math.max(levels(curr.getLeft(), length + 1), levels(curr.getRight(), length + 1));
+	}
 }
