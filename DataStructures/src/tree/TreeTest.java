@@ -55,24 +55,24 @@ public class TreeTest {
 		bst.insert(40);
 		bst.insert(60);
 		bst.insert(80);
-		assertEquals("50 30 70 20 40 60 80 ", bst.levelOrderIterative());
-		assertEquals("20 40 30 60 80 70 50 ", bst.postOrderRecur());
-		assertEquals("50 30 20 40 70 60 80 ", bst.preOrderRecur());
-		assertEquals("20 30 40 50 60 70 80 ", bst.inOrderRecur());
+		assertEquals("50 30 70 20 40 60 80 ", bst.levelOrderRecursive());
+		assertEquals("20 40 30 60 80 70 50 ", bst.postOrderRecursive());
+		assertEquals("50 30 20 40 70 60 80 ", bst.preOrderRecursive());
+		assertEquals("20 30 40 50 60 70 80 ", bst.inOrderIterative());
 		bst.remove(20);
 		assertEquals("50 30 70 40 60 80 ", bst.levelOrderIterative());
-		assertEquals("40 30 60 80 70 50 ", bst.postOrderRecur());
-		assertEquals("50 30 40 70 60 80 ", bst.preOrderRecur());
-		assertEquals("30 40 50 60 70 80 ", bst.inOrderRecur());
+		assertEquals("40 30 60 80 70 50 ", bst.postOrderRecursive());
+		assertEquals("50 30 40 70 60 80 ", bst.preOrderIterative());
+		assertEquals("30 40 50 60 70 80 ", bst.inOrderRecursive());
 		bst.remove(30);
-		assertEquals("50 40 70 60 80 ", bst.levelOrderIterative());
-		assertEquals("40 60 80 70 50 ", bst.postOrderRecur());
-		assertEquals("50 40 70 60 80 ", bst.preOrderRecur());
-		assertEquals("40 50 60 70 80 ", bst.inOrderRecur());
+		assertEquals("50 40 70 60 80 ", bst.levelOrderRecursive());
+		assertEquals("40 60 80 70 50 ", bst.postOrderRecursive());
+		assertEquals("50 40 70 60 80 ", bst.preOrderRecursive());
+		assertEquals("40 50 60 70 80 ", bst.inOrderRecursive());
 		bst.remove(50);
 		assertEquals("60 40 70 80 ", bst.levelOrderIterative());
-		assertEquals("40 80 70 60 ", bst.postOrderRecur());
-		assertEquals("60 40 70 80 ", bst.preOrderRecur());
-		assertEquals("40 60 70 80 ", bst.inOrderRecur());
+		assertEquals("40 80 70 60 ", bst.postOrderRecursive());
+		assertEquals("60 40 70 80 ", bst.preOrderRecursive());
+		assertEquals("40 60 70 80 ", bst.inOrderRecursive());
 	}
 }
