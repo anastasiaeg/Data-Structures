@@ -1,9 +1,8 @@
 package LinkedList;
 
-import java.util.HashMap;
 import java.util.HashSet;
 
-public class KindaLinkedList<E> {
+public class LinkedList<E> {
 	/** ListNode reference to the front of the list*/
 	private ListNode front;
 	/** Size of the list*/
@@ -12,7 +11,7 @@ public class KindaLinkedList<E> {
 	/**
 	 * Constructor for the list
 	 */
-	public KindaLinkedList() {
+	public LinkedList() {
 		front = null;
 		size = 0;
 	}
@@ -159,6 +158,43 @@ public class KindaLinkedList<E> {
 			current = current.next;
 		}
 	}
+	
+	
+	public E deleteMiddle() {
+		ListNode current = front;
+		int size = 0;
+		while (current != null) {
+			current = current.next;
+			size ++;
+		}
+		return remove(size / 2); 
+	}
+	
+	public E getKthToEnd(int k) {
+		int to = size() - k - 1;
+		return get(to);
+	}
+	
+	public int sumBackward() {
+		ListNode current = front;
+		String output = "";
+		while (current != null) {
+			output = current.data + output;
+			current = current.next;
+		}
+		return Integer.parseInt(output);
+	}
+	
+	public int sumForward() {
+		ListNode current = front;
+		String output = "";
+		while (current != null) {
+			output += current.data;
+			current = current.next;
+		}
+		return Integer.parseInt(output);
+	}
+	
 	/**
 	 * Element of the linked list
 	 * @author Anastasia Egorova and Brian Hogan

@@ -1,4 +1,4 @@
-package ArrayList;
+package arrayList;
 
 import java.util.AbstractList;
 
@@ -8,7 +8,7 @@ import java.util.AbstractList;
  *
  * @param <E> for generic element type
  */
-public class KindaArrayList<E> extends AbstractList<E> {
+public class ArrayList<E> extends AbstractList<E> {
 	/* Array of generic elements*/
 	private E[] data;
 	/* Size of the current array*/
@@ -17,7 +17,7 @@ public class KindaArrayList<E> extends AbstractList<E> {
 	private static final int CAPACITY = 10;
 
 	/* Default constructor of ArrayBasedList uses default size*/
-	public KindaArrayList() {
+	public ArrayList() {
 		this(CAPACITY);
 	}
 
@@ -26,7 +26,7 @@ public class KindaArrayList<E> extends AbstractList<E> {
 	 * @param cap size of a new array
 	 */
 	@SuppressWarnings("unchecked")
-	public KindaArrayList(int cap) {
+	public ArrayList(int cap) {
 		data = (E[]) new Object[cap];
 	}
 	

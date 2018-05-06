@@ -1,4 +1,4 @@
-package HashTable;
+package hashTable;
 import java.math.BigDecimal;
 
 /**
@@ -6,7 +6,7 @@ import java.math.BigDecimal;
  * @author Anastasia Egorova
  *
  */
-public class KindaHashTable {
+public class HashTable {
 	//Size of dictionary
 	private final int m = 25144;
 	//Size of dictionary * perfect cellar(14%)
@@ -21,7 +21,7 @@ public class KindaHashTable {
 	/**
 	 * Constructs a hash table with M size
 	 */
-	public KindaHashTable() {
+	public HashTable() {
 		data = new Word[m1];
 		cellar = 25144;
 	}
